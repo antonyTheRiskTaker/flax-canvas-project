@@ -1,0 +1,11 @@
+{
+  "name": "flax-canvas-project",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": "git@github.com:antonyTheRiskTaker/flax-canvas-project.git",
+  "author": "Antony Lo <mrmikadox@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^3.6.0"
+  }
+}
