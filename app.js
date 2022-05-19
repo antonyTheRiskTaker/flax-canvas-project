@@ -10,6 +10,10 @@ let draw_color = 'black';
 let draw_width = '2';
 let is_drawing = false; // It's used to specify whether we're drawing or not
 
+function change_color(element) {
+  draw_color = element.style.background;
+}
+
 // (Lines below) events starting with 'touch' is dedicated to touch devices, so this app can be used on mobile devices
 // (Line below) 'start' is a custom function
 canvas.addEventListener('touchstart', start, false);
