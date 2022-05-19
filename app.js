@@ -93,7 +93,7 @@ function drawRectangle() {
   ctx.stroke();
 }
 
-function straightLine() {
+function drawStraightLine() {
   ctx.beginPath();
   ctx.moveTo(20, 20);
   ctx.lineTo(200, 200);
