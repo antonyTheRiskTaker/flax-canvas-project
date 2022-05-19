@@ -93,9 +93,21 @@ function drawRectangle() {
   ctx.stroke();
 }
 
-function drawStraightLine() {
+function drawExercise(ctx, start, end) {
+  // ctx.beginPath();
+  // ctx.moveTo(20, 20);
+  // ctx.lineTo(200, 200);
+  // ctx.stroke();
   ctx.beginPath();
-  ctx.moveTo(20, 20);
-  ctx.lineTo(200, 200);
+  ctx.moveTo(start[0], start[1]);
+  console.log("Starting X coordinate: " + start[0]);
+  console.log("Starting Y coordinate: " + start[1]);
+  ctx.lineTo(end[0], end[1]);
+  console.log("Ending X coordinate: " + end[0]);
+  console.log("Ending Y coordinate: " + end[1]);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(end[0], start[0]);
+  ctx.lineTo(start[0], end[0]);
   ctx.stroke();
 }
