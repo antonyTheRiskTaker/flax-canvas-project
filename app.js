@@ -2,20 +2,21 @@ const canvas = document.getElementById('canvas');
 canvas.width = window.innerWidth - 60;
 canvas.height = 400;
 
+// $('#canvas').getContext('2d');
 let context = canvas.getContext('2d');
-let start_background_color = "white";
-context.fillStyle = start_background_color;
+let startBackgroundColor = "white";
+context.fillStyle = startBackgroundColor;
 context.fillRect(0, 0, canvas.width, canvas.height);
 
-let draw_color = 'black';
-let draw_width = '2';
-let is_drawing = false; // It's used to specify whether we're drawing or not
+let drawColour = 'black';
+let drawWidth = '2';
+let isDrawing = false; // It's used to specify whether we're drawing or not
 
-let restore_array = [];
+let restoreArray = [];
 let index = -1;
 
-function change_color(element) {
-  draw_color = element.style.background;
+function changeColour(element) {
+  drawColour = element.style.background;
 }
 
 // (Lines below) events starting with 'touch' is dedicated to touch devices, so this app can be used on mobile devices
@@ -31,7 +32,7 @@ canvas.addEventListener('mouseup', stop, false);
 canvas.addEventListener('mouseout', stop, false);
 
 function start(event) {
-  is_drawing = true;
+  isDrawing = true;
   context.beginPath();
   context.moveTo(event.clientX - canvas.offsetLeft,
     event.clientY - canvas.offsetTop);
@@ -39,11 +40,11 @@ function start(event) {
 }
 
 function draw(event) {
-  if (is_drawing) {
+  if (isDrawing) {
     context.lineTo(event.clientX - canvas.offsetLeft,
       event.clientY - canvas.offsetTop);
-    context.strokeStyle = draw_color;
-    context.lineWidth = draw_width;
+    context.strokeStyle = drawColour;
+    context.lineWidth = drawWidth;
     context.lineCap = 'round';
     context.lineJoin = 'round';
     context.stroke();
@@ -52,36 +53,36 @@ function draw(event) {
 }
 
 function stop(event) {
-  if (is_drawing) {
+  if (isDrawing) {
     context.stroke();
     context.closePath();
-    is_drawing = false;
+    isDrawing = false;
   }
   event.preventDefault();
 
   if (event.type != 'mouseout') {
-    restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height));
+    restoreArray.push(context.getImageData(0, 0, canvas.width, canvas.height));
     index += 1;
-    console.log(restore_array);
+    console.log(restoreArray);
   }
 }
 
-function clear_canvas() {
-  context.fillStyle = start_background_color;
+function clearCanvas() {
+  context.fillStyle = startBackgroundColor;
   // (Line below) it turns the canvas to transparent black
   context.clearRect(0, 0, canvas.width, canvas.height);
   context.fillRect(0, 0, canvas.width, canvas.height);
 
-  restore_array = [];
+  restoreArray = [];
   index = -1;
 }
 
-function undo_last() { 
+function undoLast() { 
   if (index <= 0) {
-    clear_canvas();
+    clearCanvas();
   } else {
     index -= 1;
-    restore_array.pop();
-    context.putImageData(restore_array[index], 0, 0);
+    restoreArray.pop();
+    context.putImageData(restoreArray[index], 0, 0);
   }
 }
