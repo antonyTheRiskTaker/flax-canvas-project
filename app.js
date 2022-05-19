@@ -1,13 +1,12 @@
 // (Line below) jQuery equivalent of getElementById
 const canvas = $('#canvas')[0];
+const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth - 60;
 canvas.height = 400;
 
-// $('#canvas').getContext('2d');
-let context = canvas.getContext('2d');
 let startBackgroundColor = "white";
-context.fillStyle = startBackgroundColor;
-context.fillRect(0, 0, canvas.width, canvas.height);
+ctx.fillStyle = startBackgroundColor;
+ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 let drawColour = 'black';
 let drawWidth = '2';
@@ -34,56 +33,69 @@ canvas.addEventListener('mouseout', stop, false);
 
 function start(event) {
   isDrawing = true;
-  context.beginPath();
-  context.moveTo(event.clientX - canvas.offsetLeft,
+  ctx.beginPath();
+  ctx.moveTo(event.clientX - canvas.offsetLeft,
     event.clientY - canvas.offsetTop);
   event.preventDefault(); // To prevent changes from disappearing
 }
 
 function draw(event) {
   if (isDrawing) {
-    context.lineTo(event.clientX - canvas.offsetLeft,
+    ctx.lineTo(event.clientX - canvas.offsetLeft,
       event.clientY - canvas.offsetTop);
-    context.strokeStyle = drawColour;
-    context.lineWidth = drawWidth;
-    context.lineCap = 'round';
-    context.lineJoin = 'round';
-    context.stroke();
+    ctx.strokeStyle = drawColour;
+    ctx.lineWidth = drawWidth;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.stroke();
   }
   event.preventDefault();
 }
 
 function stop(event) {
   if (isDrawing) {
-    context.stroke();
-    context.closePath();
+    ctx.stroke();
+    ctx.closePath();
     isDrawing = false;
   }
   event.preventDefault();
 
   if (event.type != 'mouseout') {
-    restoreArray.push(context.getImageData(0, 0, canvas.width, canvas.height));
+    restoreArray.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
     index += 1;
     console.log(restoreArray);
   }
 }
 
 function clearCanvas() {
-  context.fillStyle = startBackgroundColor;
+  ctx.fillStyle = startBackgroundColor;
   // (Line below) it turns the canvas to transparent black
-  context.clearRect(0, 0, canvas.width, canvas.height);
-  context.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   restoreArray = [];
   index = -1;
 }
 
-function undoLast() { 
+function undoLast() {
   if (index <= 0) {
     clearCanvas();
   } else {
     index -= 1;
     restoreArray.pop();
-    context.putImageData(restoreArray[index], 0, 0);
+    ctx.putImageData(restoreArray[index], 0, 0);
   }
+}
+
+function drawRectangle() {
+  ctx.beginPath();
+  ctx.rect(20, 20, 150, 100);
+  ctx.stroke();
+}
+
+function straightLine() {
+  ctx.beginPath();
+  ctx.moveTo(20, 20);
+  ctx.lineTo(200, 200);
+  ctx.stroke();
 }
