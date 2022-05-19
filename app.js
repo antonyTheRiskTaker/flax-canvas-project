@@ -1,4 +1,4 @@
-const canvas = document.getElementById('canvas');
+const canvas = $('#canvas')[0];
 canvas.width = window.innerWidth - 60;
 canvas.height = 400;
 
