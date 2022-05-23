@@ -4,14 +4,16 @@
 
 body {
   margin: 0px;
-  padding: 30px;
+  padding: 25px;
   font-family: 'Mukta';
   overflow: hidden;
-  background: #313131;
+  background: #fff;
+  color: #000;
 }
 
 canvas {
-  box-shadow: -3px 2px 9px 6px black;
+  /* box-shadow: -3px 2px 9px 6px black; */
+  border: 1px #000 solid;
   cursor: pointer;
 }
 
