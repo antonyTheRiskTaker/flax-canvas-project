@@ -6,7 +6,7 @@ body {
   margin: 0px;
   padding: 25px;
   font-family: 'Mukta';
-  overflow: hidden;
+  overflow: scroll;
   background: #fff;
   color: #000;
 }
@@ -30,14 +30,14 @@ body {
   height: 720px;
 }
 
-/* .tools {
+.tools {
   display: flex;
   justify-content: center;
   flex-direction: row;
   margin-top: 15px;
 }
 
-.tools .button {
+/* .tools .button {
   align-self: center;
   width: 100px;
   height: 40px;
