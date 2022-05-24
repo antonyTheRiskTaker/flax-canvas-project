@@ -4,21 +4,61 @@ const ctx = canvas.getContext('2d');
 canvas.width = 500;
 canvas.height = 500;
 
-let startBackgroundColor = "white";
+// Canvas setting
+let startBackgroundColor = 'white';
 ctx.fillStyle = startBackgroundColor;
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 let dragging = false;
 
+// Drawing setting
+ctx.strokeStyle = '#000';
+ctx.lineJoin = 'round';
+ctx.lineWidth = 5;
+
 // Equivalent to $(document).ready(() => {});
 $(() => {
-  // Get coordinates via mousedown
+  // When your mouse clicks... (drawing)
   $('#canvas').on('mousedown', e => {
     const mouseX = e.offsetX;
     const mouseY = e.offsetY;
-    console.log(`X Coordinate: ${mouseX}`);
-    console.log(`Y Coordinate: ${mouseY}`);
+    // console.log(`X Coordinate: ${mouseX}`);
+    // console.log(`Y Coordinate: ${mouseY}`);
+    // console.log('start to draw');
+    ctx.beginPath();
+    ctx.moveTo(mouseX, mouseY);
+    draw(mouseX, mouseY);
+    dragging = true;
   });
+
+  // When your mouse moves... (drawing)
+  $('#canvas').on('mousemove', e => {
+    if (dragging) {
+      const mouseX = e.offsetX;
+      const mouseY = e.offsetY;
+      // console.log('still drawing');
+      draw(mouseX, mouseY);
+    }
+  });
+
+  // When you release your mouse... (drawing)
+  $('#canvas').on(('mouseup' || 'mouseleave'), e => {
+    // console.log('finish drawing');
+    dragging = false;
+  });
+
+  // When your mouse is no longer on the screen... (drawing)
+  // $('#canvas').on('mouseleave', e => {
+  //   dragging = false;
+  // });
+
+  // Get coordinates via mousedown
+  // $('#canvas').on('mousedown', e => {
+  //   const mouseX = e.offsetX;
+  //   const mouseY = e.offsetY;
+  //   console.log(`X Coordinate: ${mouseX}`);
+  //   console.log(`Y Coordinate: ${mouseY}`);
+  // });
 
   // Get coordinates via mousemove
   // $('#canvas').on('mousemove', e => {
@@ -44,6 +84,15 @@ $(() => {
   //   console.log(`Y Coordinate: ${mouseY}`);
   // });
 });
+
+function draw(x, y) {
+  ctx.lineTo(x, y);
+  // console.log(`X Coordinate: ${x}`); // for debugging
+  // console.log(`Y Coordinate: ${y}`); // for debugging
+  ctx.moveTo(x, y);
+  ctx.closePath();
+  ctx.stroke();
+}
 
 // let drawColour = 'black';
 // let drawWidth = '2';
