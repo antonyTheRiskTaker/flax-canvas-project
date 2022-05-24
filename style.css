@@ -11,10 +11,19 @@ body {
   color: #000;
 }
 
-canvas {
+.canvas {
   /* box-shadow: -3px 2px 9px 6px black; */
   border: 1px #000 solid;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
   cursor: pointer;
+}
+
+#canvas-draft {
+  background-color: transparent;
 }
 
 .tools {

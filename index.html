@@ -5,43 +5,39 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <script type="text/javascript" src="jquery-3.6.0.min.js"></script> -->
   <link href="style.css" type="text/css" rel="stylesheet" />
   <title>Flax Canvas</title>
 </head>
 
 <body>
   <div class="field">
-    <canvas id="canvas"></canvas>
-    <!-- <div id="canvas-container">
-      <canvas id="canvas-real"></canvas>
-      <canvas id="canvas-draft"></canvas>
-    </div> -->
+    <!-- <canvas id="canvas"></canvas> -->
+    <div id="canvas-container">
+      <canvas id="canvas-real" class="canvas"></canvas>
+      <canvas id="canvas-draft" class="canvas"></canvas>
+    </div>
     <div class="tools">
-      <button onClick="undoLast()" type="button" class="button">Undo</button>
+      <!-- <button onClick="undoLast()" type="button" class="button">Undo</button>
       <button onClick="clearCanvas()" type="button" class="button">Clear</button>
       <button onClick="drawSquare()" class="button">Square</button>
       <button onClick="drawRectangle()" class="button">Rectangle</button>
-      <button onClick="drawTriangle()" class="button">Triangle</button>
-      <button onClick="drawExercise(ctx, [20, 20], [300, 300])" class="button">Exercise</button>
+      <button onClick="drawTriangle()" class="button">Triangle</button> -->
 
       <!-- (Line below) changeColour is a custom function defined in app.js -->
-      <div onClick="changeColour(this)" class="color-field" style="background: red"></div>
+      <!-- <div onClick="changeColour(this)" class="color-field" style="background: red"></div>
       <div onClick="changeColour(this)" class="color-field" style="background: blue"></div>
       <div onClick="changeColour(this)" class="color-field" style="background: green"></div>
-      <div onClick="changeColour(this)" class="color-field" style="background: yellow"></div>
+      <div onClick="changeColour(this)" class="color-field" style="background: yellow"></div> -->
 
-      <input onInput="drawColour = this.value" type="color" class="color-picker" />
-      <input onInput="drawWidth = this.value" type="range" min="1" max="100" class="pen-range" />
+      <!-- <input onInput="drawColour = this.value" type="color" class="color-picker" />
+      <input onInput="drawWidth = this.value" type="range" min="1" max="100" class="pen-range" /> -->
     </div>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="app.js"></script>
   <script src="canvas-common.js"></script>
-  <!-- <script src="barchartExercise.js"></script> -->
-  <!-- <script src="piechartExercise.js"></script> -->
-  <!-- <script src="transform.js"></script> -->
-  <!-- <script src="clipping.js"></script> -->
+  <script src="DrawingLine.js"></script>
+  <script src="DrawingRectangle.js"></script>
 </body>
 
 </html>
