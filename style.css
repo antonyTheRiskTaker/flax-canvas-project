@@ -26,7 +26,11 @@ body {
   background-color: transparent;
 }
 
-.tools {
+#canvas-container {
+  height: 720px;
+}
+
+/* .tools {
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -67,4 +71,4 @@ body {
 .pen-range {
   align-self: center;
   margin: 0 10px;
-}
+} */
