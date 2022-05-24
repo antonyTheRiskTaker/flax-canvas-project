@@ -3,8 +3,12 @@ $(() => {
     currentFunction = new DrawingLine(ctxReal, ctxDraft);
   });
 
+  $('#drawing-straight-line').on('click', () => {
+    console.log('draw sl clicked');
+    currentFunction = new DrawingStraightLine(ctxReal, ctxDraft);
+  });
+
   $('#drawing-rectangle').on('click', () => {
-    console.log('draw rect clicked');
     currentFunction = new DrawingRectangle(ctxReal, ctxDraft);
   });
 
