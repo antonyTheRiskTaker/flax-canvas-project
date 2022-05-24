@@ -17,14 +17,14 @@ class DrawingRectangle extends PaintFunction {
     this.ctxDraft.fillRect(this.origX, this.origY, coord[0] - this.origX, coord[1] - this.origY);
   }
 
-  onMouseMove() {} // ?
+  onMouseMove() {} // Assume it's not needed
 
   onMouseUp(coord) {
     this.ctxDraft.clearRect(0, 0, canvasDraft.width, canvas.height);
     this.ctxReadl.fillRect(this.origX, this.origY, coord[0] - this.origX,  coord[1] - this.origY);
   }
 
-  onMouseLeave() {} // ?
+  onMouseLeave() {} // Assume it's not needed
 
-  onMouseEnter() {} // ? 
+  onMouseEnter() {} // Assume it's not needed
 }
