@@ -4,12 +4,15 @@ $(() => {
   });
 
   $('#drawing-straight-line').on('click', () => {
-    console.log('draw sl clicked');
     currentFunction = new DrawingStraightLine(ctxReal, ctxDraft);
   });
 
   $('#drawing-rectangle').on('click', () => {
     currentFunction = new DrawingRectangle(ctxReal, ctxDraft);
+  });
+
+  $('#drawing-circle').on('click', () => {
+    currentFunction = new DrawingCircle(ctxReal, ctxDraft);
   });
 
   currentFunction = new DrawingLine(ctxReal, ctxDraft);
