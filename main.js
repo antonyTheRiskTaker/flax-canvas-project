@@ -15,6 +15,10 @@ $(() => {
     currentFunction = new DrawingCircle(ctxReal, ctxDraft);
   });
 
+  $('#drawing-curved-line').on('click', () => {
+    currentFunction = new DrawingCurvedLine(ctxReal, ctxDraft);
+  });
+
   $('#clear').on('click', () => {
     currentFunction = new ClearCanvas(ctxReal, ctxDraft);
     currentFunction.clear();
