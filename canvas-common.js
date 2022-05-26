@@ -5,7 +5,6 @@ const ctxDraft = canvasDraft.getContext('2d');
 let currentFunction; // currentFunction refers to a class instance
 let dragging = false;
 
-// I wonder if I should add a $(() => {}) to encompass all these event handlers;
 // $(() => {}); is equivalent to $(document).ready(() => {}); which is deprecated
 $(() => {
 
