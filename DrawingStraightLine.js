@@ -1,7 +1,6 @@
 class DrawingStraightLine extends PaintFunction {
   constructor(ctxReal) {
     super();
-    // this.ctxReal = ctxReal;
     // this.ctxDraft = ctxDraft;
     this.ctx = ctxReal;
     this.line = null;
