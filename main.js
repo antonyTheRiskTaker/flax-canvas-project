@@ -1,8 +1,7 @@
 $(() => {
   $('#drawing-line').on('click', () => {
     currentDrawingFunction = new DrawingLine(
-      ctxReal,
-      // ctxDraft
+      ctxReal
     );
   });
 

@@ -1,15 +1,15 @@
 class DragAndDropEraser extends PaintFunction {
   constructor(ctxReal) {
     super();
-    this.ctx = ctxReal;
+    this.ctxReal = ctxReal;
   }
 
   onMouseDown(coord, e) {
-    this.ctx.strokeStyle = 'white'; // Background colour
-    this.ctx.lineJoin = 'round';
-    this.ctx.lineWidth = 50;
-    this.ctx.beginPath();
-    this.ctx.moveTo(coord[0], coord[1]);
+    this.ctxReal.strokeStyle = 'white'; // Background colour
+    this.ctxReal.lineJoin = 'round';
+    this.ctxReal.lineWidth = 50;
+    this.ctxReal.beginPath();
+    this.ctxReal.moveTo(coord[0], coord[1]);
     this.draw(coord[0], coord[1]);
   }
 
@@ -26,9 +26,9 @@ class DragAndDropEraser extends PaintFunction {
   onMouseEnter() {} // Assume it's not needed
 
   draw(x, y) {
-    this.ctx.lineTo(x, y);
-    this.ctx.moveTo(x, y);
-    this.ctx.closePath();
-    this.ctx.stroke();
+    this.ctxReal.lineTo(x, y);
+    this.ctxReal.moveTo(x, y);
+    this.ctxReal.closePath();
+    this.ctxReal.stroke();
   }
 }

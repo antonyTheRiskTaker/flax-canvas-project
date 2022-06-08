@@ -10,7 +10,7 @@ class DrawingCurvedLine extends PaintFunction {
     console.log('Mousedown');
     this.ctxReal.strokeStyle = drawColour;
     this.ctxReal.lineJoin = 'round';
-    this.ctxReal.lineWidth = 5;
+    this.ctxReal.lineWidth = drawWidth;
     
     if (this.clicked === 0) {
       this.origX = coord[0];
@@ -28,7 +28,7 @@ class DrawingCurvedLine extends PaintFunction {
     this.ctxDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
     this.ctxDraft.strokeStyle = drawColour;
     this.ctxDraft.lineJoin = 'round';
-    this.ctxDraft.lineWidth = 5;
+    this.ctxDraft.lineWidth = drawWidth;
     this.ctxDraft.beginPath();
     this.ctxDraft.moveTo(this.origX, this.origY);
     this.ctxDraft.quadraticCurveTo(coord[0], coord[1], this.endX, this.endY);

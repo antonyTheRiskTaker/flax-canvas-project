@@ -4,6 +4,7 @@ const ctxReal = canvasReal.getContext('2d');
 const ctxDraft = canvasDraft.getContext('2d');
 const pickColourField = $('#colour-picker')[0];
 
+// Default settings
 let drawColour = 'black';
 let drawWidth = '2';
 let currentDrawingFunction; // currentDrawingFunction refers to a class instance
