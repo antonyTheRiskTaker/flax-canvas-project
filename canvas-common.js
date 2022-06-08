@@ -1,7 +1,9 @@
 const canvasReal = $('#canvas-real')[0];
-const ctxReal = canvasReal.getContext('2d');
 const canvasDraft = $('#canvas-draft')[0];
+const ctxReal = canvasReal.getContext('2d');
 const ctxDraft = canvasDraft.getContext('2d');
+const pickColourField = $('#colour-picker')[0];
+
 let drawColour = 'black';
 let drawWidth = '2';
 let currentDrawingFunction; // currentDrawingFunction refers to a class instance

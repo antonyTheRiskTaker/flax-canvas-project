@@ -2,11 +2,10 @@ class DrawingLine extends PaintFunction {
   constructor(ctxReal, drawColour) {
     super();
     this.ctx = ctxReal;
-    this.drawColour = drawColour;
   }
 
   onMouseDown(coord, e) {
-    this.ctx.strokeStyle = this.drawColour;
+    this.ctx.strokeStyle = drawColour;
     this.ctx.lineJoin = 'round';
     this.ctx.lineWidth = 5;
     this.ctx.beginPath();
