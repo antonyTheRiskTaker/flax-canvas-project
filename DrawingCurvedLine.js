@@ -46,10 +46,10 @@ class DrawingCurvedLine extends PaintFunction {
       this.ctxReal.moveTo(this.origX, this.origY);
       this.ctxReal.quadraticCurveTo(coord[0], coord[1], this.endX, this.endY);
       this.ctxReal.stroke();
-      this.origX = null;
-      this.origY = null;
-      this.endX = null;
-      this.endY = null;
+      this.origX = undefined;
+      this.origY = undefined;
+      this.endX = undefined;
+      this.endY = undefined;
     }
   }
 
