@@ -37,6 +37,10 @@ body {
   margin-top: 15px;
 }
 
+.show-clicked {
+  background-color: yellow;
+}
+
 /* .tools .button {
   align-self: center;
   width: 100px;
