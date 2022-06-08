@@ -29,6 +29,7 @@ class DrawingCurvedLine extends PaintFunction {
     this.ctxDraft.strokeStyle = drawColour;
     this.ctxDraft.lineJoin = 'round';
     this.ctxDraft.lineWidth = 5;
+    this.ctxDraft.beginPath();
     this.ctxDraft.moveTo(this.origX, this.origY);
     this.ctxDraft.quadraticCurveTo(coord[0], coord[1], this.endX, this.endY);
     this.ctxDraft.stroke();
@@ -41,9 +42,14 @@ class DrawingCurvedLine extends PaintFunction {
       // reset coord
       this.clicked = 0;
       this.ctxDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+      this.ctxReal.beginPath();
       this.ctxReal.moveTo(this.origX, this.origY);
       this.ctxReal.quadraticCurveTo(coord[0], coord[1], this.endX, this.endY);
       this.ctxReal.stroke();
+      this.origX = null;
+      this.origY = null;
+      this.endX = null;
+      this.endY = null;
     }
   }
 
