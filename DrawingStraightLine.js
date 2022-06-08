@@ -1,6 +1,8 @@
 class DrawingStraightLine extends PaintFunction {
   constructor(ctxReal) {
     super();
+    // this.ctxReal = ctxReal;
+    // this.ctxDraft = ctxDraft;
     this.ctx = ctxReal;
     this.line = null;
     // (Line below) this is used instead of the draft-real canvas system in order to save straight lines on the canvas
@@ -13,7 +15,6 @@ class DrawingStraightLine extends PaintFunction {
   onMouseDown(coord, e) {
     this.ctx.strokeStyle = '#df4b26';
     this.ctx.lineCap = 'round';
-    // this.ctx.lineJoin = 'round';
     this.ctx.lineWidth = 5;
 
     this.mouseDownPosition = this.getMousePosition(coord);
@@ -25,13 +26,10 @@ class DrawingStraightLine extends PaintFunction {
 
     this.lines.push(this.line);
 
-    // console.log(this.mouseDownPosition);
-    // this.drawStraightLine(this.line);
     this.drawLines()
   }
 
   onDragging(coord, e) {
-    // console.log(`dragging: ${dragging}`);
     this.currentPosition = this.getMousePosition(coord);
 
     this.line = {
@@ -41,7 +39,6 @@ class DrawingStraightLine extends PaintFunction {
 
     this.lines.pop();
     this.lines.push(this.line);
-    // console.log(this.lines);
     // this.ctx.clearRect(0, 0, canvasReal.width, canvasReal.height);
     // this.drawStraightLine(this.line);
     this.drawLines();
