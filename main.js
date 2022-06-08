@@ -1,28 +1,59 @@
 $(() => {
   $('#drawing-line').on('click', () => {
-    currentFunction = new DrawingLine(ctxReal, ctxDraft);
+    currentDrawingFunction = new DrawingLine(
+      ctxReal,
+      // ctxDraft,
+      drawColour
+    );
   });
 
   $('#drawing-straight-line').on('click', () => {
-    currentFunction = new DrawingStraightLine(ctxReal, ctxDraft);
+    currentDrawingFunction = new DrawingStraightLine(
+      ctxReal,
+      ctxDraft,
+      drawColour
+    );
   });
 
   $('#drawing-rectangle').on('click', () => {
-    currentFunction = new DrawingRectangle(ctxReal, ctxDraft);
+    currentDrawingFunction = new DrawingRectangle(
+      ctxReal,
+      ctxDraft,
+      drawColour
+    );
   });
 
   $('#drawing-circle').on('click', () => {
-    currentFunction = new DrawingCircle(ctxReal, ctxDraft);
+    currentDrawingFunction = new DrawingCircle(
+      ctxReal,
+      ctxDraft,
+      drawColour
+    );
   });
 
   $('#drawing-curved-line').on('click', () => {
-    currentFunction = new DrawingCurvedLine(ctxReal, ctxDraft);
+    currentDrawingFunction = new DrawingCurvedLine(
+      ctxReal,
+      ctxDraft,
+      drawColour
+    );
   });
 
   $('#clear').on('click', () => {
-    currentFunction = new ClearCanvas(ctxReal, ctxDraft);
-    currentFunction.clear();
+    currentDrawingFunction = new ClearCanvas(
+      ctxReal,
+      ctxDraft
+    );
+    currentDrawingFunction.clear();
   });
 
-  currentFunction = new DrawingLine(ctxReal, ctxDraft);
+  $('#colour-picker').on('input', () => {
+    drawColour = this.value;
+   });
+
+  currentDrawingFunction = new DrawingLine(
+    ctxReal,
+    // ctxDraft,
+    drawColour
+  );
 });

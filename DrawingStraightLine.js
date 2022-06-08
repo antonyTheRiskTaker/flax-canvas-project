@@ -1,5 +1,5 @@
 class DrawingStraightLine extends PaintFunction {
-  constructor(ctxReal) {
+  constructor(ctxReal, drawColour) {
     super();
     // this.ctxReal = ctxReal;
     // this.ctxDraft = ctxDraft;
@@ -10,10 +10,11 @@ class DrawingStraightLine extends PaintFunction {
     this.mouseDownPosition = null;
     this.mouseUpPosition = null;
     this.currentPosition = null;
+    this.drawColour = drawColour;
   }
 
   onMouseDown(coord, e) {
-    this.ctx.strokeStyle = '#df4b26';
+    this.ctx.strokeStyle = this.drawColour;
     this.ctx.lineCap = 'round';
     this.ctx.lineWidth = 5;
 

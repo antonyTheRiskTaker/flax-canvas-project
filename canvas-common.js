@@ -2,7 +2,9 @@ const canvasReal = $('#canvas-real')[0];
 const ctxReal = canvasReal.getContext('2d');
 const canvasDraft = $('#canvas-draft')[0];
 const ctxDraft = canvasDraft.getContext('2d');
-let currentFunction; // currentFunction refers to a class instance
+let drawColour = 'black';
+let drawWidth = '2';
+let currentDrawingFunction; // currentDrawingFunction refers to a class instance
 let dragging = false;
 
 // $(() => {}); is equivalent to $(document).ready(() => {}); which is deprecated
@@ -11,7 +13,7 @@ $(() => {
   $('#canvas-draft').on('mousedown', e => {
     const mouseX = e.offsetX;
     const mouseY = e.offsetY;
-    currentFunction.onMouseDown([mouseX, mouseY], e);
+    currentDrawingFunction.onMouseDown([mouseX, mouseY], e);
     dragging = true;
   });
 
@@ -19,29 +21,29 @@ $(() => {
     const mouseX = e.offsetX;
     const mouseY = e.offsetY;
     if (dragging) {
-      currentFunction.onDragging([mouseX, mouseY], e);
+      currentDrawingFunction.onDragging([mouseX, mouseY], e);
     }
-    currentFunction.onMouseMove([mouseX, mouseY], e);
+    currentDrawingFunction.onMouseMove([mouseX, mouseY], e);
   });
 
   $('#canvas-draft').on('mouseup', e => {
     dragging = false;
     const mouseX = e.offsetX;
     const mouseY = e.offsetY;
-    currentFunction.onMouseUp([mouseX, mouseY], e);
+    currentDrawingFunction.onMouseUp([mouseX, mouseY], e);
   });
 
   $('#canvas-draft').on('mouseleave', e => {
     dragging = false;
     const mouseX = e.offsetX;
     const mouseY = e.offsetY;
-    currentFunction.onMouseLeave([mouseX, mouseY], e);
+    currentDrawingFunction.onMouseLeave([mouseX, mouseY], e);
   });
 
   $('#canvas-draft').on('mouseenter', e => {
     const mouseX = e.offsetX;
     const mouseY = e.offsetY;
-    currentFunction.onMouseEnter([mouseX, mouseY], e);
+    currentDrawingFunction.onMouseEnter([mouseX, mouseY], e);
   });
   
 });
