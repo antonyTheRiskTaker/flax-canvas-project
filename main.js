@@ -2,40 +2,35 @@ $(() => {
   $('#drawing-line').on('click', () => {
     currentDrawingFunction = new DrawingLine(
       ctxReal,
-      // ctxDraft,
-      drawColour
+      // ctxDraft
     );
   });
 
   $('#drawing-straight-line').on('click', () => {
     currentDrawingFunction = new DrawingStraightLine(
       ctxReal,
-      ctxDraft,
-      drawColour
+      ctxDraft
     );
   });
 
   $('#drawing-rectangle').on('click', () => {
     currentDrawingFunction = new DrawingRectangle(
       ctxReal,
-      ctxDraft,
-      drawColour
+      ctxDraft
     );
   });
 
   $('#drawing-circle').on('click', () => {
     currentDrawingFunction = new DrawingCircle(
       ctxReal,
-      ctxDraft,
-      drawColour
+      ctxDraft
     );
   });
 
   $('#drawing-curved-line').on('click', () => {
     currentDrawingFunction = new DrawingCurvedLine(
       ctxReal,
-      ctxDraft,
-      drawColour
+      ctxDraft
     );
   });
 
@@ -54,12 +49,11 @@ $(() => {
   })
 
   $('#colour-picker').on('input', () => {
-    drawColour = $('#colour-picker').value;
+    drawColour = pickColourField.value;
   });
 
   currentDrawingFunction = new DrawingLine(
     ctxReal,
     // ctxDraft,
-    drawColour
   );
 });

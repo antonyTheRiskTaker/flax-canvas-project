@@ -1,15 +1,14 @@
 class DrawingCurvedLine extends PaintFunction {
-  constructor(ctxReal, ctxDraft, drawColour) {
+  constructor(ctxReal, ctxDraft) {
     super();
     this.ctxReal = ctxReal;
     this.ctxDraft = ctxDraft;
-    this.drawColour = drawColour;
     this.clicked = 0;
   }
 
   onMouseDown(coord, e) {
     console.log('Mousedown');
-    this.ctxReal.strokeStyle = this.drawColour;
+    this.ctxReal.strokeStyle = drawColour;
     this.ctxReal.lineJoin = 'round';
     this.ctxReal.lineWidth = 5;
     
@@ -27,7 +26,7 @@ class DrawingCurvedLine extends PaintFunction {
   onDragging(coord, e) {
     console.log('Dragging');
     this.ctxDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-    this.ctxDraft.strokeStyle = this.drawColour;
+    this.ctxDraft.strokeStyle = drawColour;
     this.ctxDraft.lineJoin = 'round';
     this.ctxDraft.lineWidth = 5;
     this.ctxDraft.moveTo(this.origX, this.origY);

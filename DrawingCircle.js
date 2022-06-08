@@ -1,20 +1,19 @@
 class DrawingCircle extends PaintFunction {
-  constructor(ctxReal, ctxDraft, drawColour) {
+  constructor(ctxReal, ctxDraft) {
     super();
     this.ctxReal = ctxReal;
     this.ctxDraft = ctxDraft;
-    this.drawColour = drawColour;
     this.radius = null;
   }
 
   onMouseDown(coord, e) {
-    this.ctxReal.fillStyle = this.drawColour;
+    this.ctxReal.fillStyle = drawColour;
     this.origX = coord[0];
     this.origY = coord[1];
   }
 
   onDragging(coord, e) {
-    this.ctxDraft.fillStyle = this.drawColour;
+    this.ctxDraft.fillStyle = drawColour;
     this.radius = Math.sqrt((coord[0] - this.origX)**2 + (coord[1] - this.origY)**2);
     this.ctxDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
     this.ctxDraft.arc(this.origX, this.origY, this.radius, 0, 2*Math.PI);
