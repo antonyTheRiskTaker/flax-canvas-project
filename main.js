@@ -48,7 +48,7 @@ $(() => {
   });
 
   $('#colour-picker').on('input', () => {
-    drawColour = this.value;
+    drawColour = $('#colour-picker').value;
    });
 
   currentDrawingFunction = new DrawingLine(
