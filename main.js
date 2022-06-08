@@ -47,9 +47,15 @@ $(() => {
     currentDrawingFunction.clear();
   });
 
+  $('#eraser').on('click', () => {
+    currentDrawingFunction = new DragAndDropEraser(
+      ctxReal
+    );
+  })
+
   $('#colour-picker').on('input', () => {
     drawColour = $('#colour-picker').value;
-   });
+  });
 
   currentDrawingFunction = new DrawingLine(
     ctxReal,
