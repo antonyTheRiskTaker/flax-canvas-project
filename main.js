@@ -52,7 +52,6 @@ $(() => {
   });
 
   currentDrawingFunction = new DrawingLine(
-    ctxReal,
-    // ctxDraft,
+    ctxReal
   );
 });

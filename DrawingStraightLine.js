@@ -1,20 +1,22 @@
 class DrawingStraightLine extends PaintFunction {
-  constructor(ctxReal) {
+  constructor(ctxReal, ctxDraft) {
     super();
-    // this.ctxDraft = ctxDraft;
-    this.ctx = ctxReal;
-    this.line = null;
-    // (Line below) this is used instead of the draft-real canvas system in order to save straight lines on the canvas
-    this.lines = []; 
-    this.mouseDownPosition = null;
-    this.mouseUpPosition = null;
-    this.currentPosition = null;
+    this.ctxReal = ctxReal;
+    this.ctxDraft = ctxDraft;
+    this.line = undefined;
+    this.lines = []; // An array of line objects
+    this.mouseDownPosition = undefined;
+    this.mouseUpPosition = undefined;
+    this.currentPosition = undefined;
   }
 
   onMouseDown(coord, e) {
-    this.ctx.strokeStyle = drawColour;
-    this.ctx.lineCap = 'round';
-    this.ctx.lineWidth = 5;
+    this.ctxReal.strokeStyle = drawColour;
+    this.ctxReal.lineCap = 'round';
+    this.ctxReal.lineWidth = drawWidth;
+    this.ctxDraft.strokeStyle = drawColour;
+    this.ctxDraft.lineCap = 'round';
+    this.ctxDraft.lineWidth = drawWidth;
 
     this.mouseDownPosition = this.getMousePosition(coord);
 
@@ -25,7 +27,7 @@ class DrawingStraightLine extends PaintFunction {
 
     this.lines.push(this.line);
 
-    this.drawLines()
+    this.drawLines(); // ctx default value = this.ctxDraft
   }
 
   onDragging(coord, e) {
@@ -38,49 +40,49 @@ class DrawingStraightLine extends PaintFunction {
 
     this.lines.pop();
     this.lines.push(this.line);
-    // this.ctx.clearRect(0, 0, canvasReal.width, canvasReal.height);
-    // this.drawStraightLine(this.line);
+
     this.drawLines();
   }
 
-  onMouseMove() {}
+  onMouseMove() { }
 
   onMouseUp(coord, e) {
+    this.drawLines(this.ctxReal);
     this.mouseUpPosition = this.getMousePosition(coord);
     console.log(this.mouseUpPosition);
   }
 
-  onMouseLeave() {}
+  onMouseLeave() { }
 
-  onMouseEnter() {}
+  onMouseEnter() { }
 
-  drawStraightLine(line) {
+  drawStraightLine(line, ctx) {
     const {
       start,
       end
     } = line;
-    this.ctx.beginPath();
-    this.ctx.moveTo(start.x, start.y);
-    this.ctx.lineTo(end.x, end.y);
-    this.ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(start.x, start.y);
+    ctx.lineTo(end.x, end.y);
+    ctx.stroke();
   }
 
-  drawLines() {
-    this.clearCanvas();
+  drawLines(ctx = this.ctxDraft) {
+    this.clearDraftCanvas();
     this.lines.forEach(line => {
-      this.drawStraightLine(line)
+      this.drawStraightLine(line, ctx)
     });
   }
 
   getMousePosition(coord) {
     const position = {
       x: coord[0],
-      y: coord[1] 
+      y: coord[1]
     };
     return position;
   }
 
-  clearCanvas() {
-    this.ctx.clearRect(0, 0, canvasReal.width, canvasReal.height);
+  clearDraftCanvas() {
+    this.ctxDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
   }
 }
