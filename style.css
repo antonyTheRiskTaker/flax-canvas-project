@@ -13,7 +13,7 @@ body {
 
 .canvas {
   /* box-shadow: -3px 2px 9px 6px black; */
-  border: 1px #000 solid;
+  border: 10px rgb(145, 79, 25) solid;
   position: absolute;
   top: 0px;
   bottom: 0px;
@@ -28,6 +28,12 @@ body {
 
 #canvas-container {
   height: 720px;
+}
+
+.colour-picker {
+  border: 2px black solid;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .tools {
