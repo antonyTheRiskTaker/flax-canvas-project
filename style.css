@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Mukta');
 
-/* :root {} */
+:root {
+  --canvas-size: 500px;
+
+  --brick-color: #e74c3c;
+}
 
 body {
   margin: 0px;
@@ -11,23 +15,55 @@ body {
   color: #000;
 }
 
+.canvas-tools-box {
+  display: flex;
+  justify-content: center;
+  column-gap: 20px;
+}
+
+.tool-box {
+  --button-border-radius: 8px;
+  --button-border-width: 2px;
+  --button-background-color: #222222;
+  --button-padding: 5px;
+  --button-color: white;
+
+  display: flex;
+  background-color: var(--brick-color);
+  border: 5px solid brown;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.tool-box > button {
+  cursor: pointer;
+  border: var(--button-border-width) solid white;
+  background-color: var(--button-background-color);
+  color: var(--button-color);
+  padding: var(--button-padding);
+  font-weight: bold;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.canvas-wrapper {
+  position: relative;
+  width: var(--canvas-size);
+  height: var(--canvas-size);
+  border: 10px solid brown;
+}
+
 .canvas {
-  /* box-shadow: -3px 2px 9px 6px black; */
-  border: 10px rgb(145, 79, 25) solid;
   position: absolute;
   top: 0px;
-  bottom: 0px;
   left: 0px;
-  right: 0px;
+  border-width: 2px;
+  /* background-color: beige; */
   cursor: pointer;
 }
 
 #canvas-draft {
   background-color: transparent;
-}
-
-#canvas-container {
-  height: 720px;
 }
 
 .colour-picker {
@@ -36,7 +72,7 @@ body {
   text-align: center;
 }
 
-.tools {
+/* .tools {
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -45,40 +81,4 @@ body {
 
 .show-clicked {
   background-color: yellow;
-}
-
-/* .tools .button {
-  align-self: center;
-  width: 100px;
-  height: 40px;
-  border: 2px solid white;
-  cursor: pointer;
-  color: white;
-  background: #222;
-  font-weight: bold;
-  margin: 0 10px;
-}
-
-.tools .color-field {
-  height: 40px;
-  width: 40px;
-  min-height: 40px;
-  min-width: 40px;
-  cursor: pointer;
-  display: inline-block;
-  box-sizing: border-box;
-  border-radius: 50%;
-  border: 2px solid white;
-  margin: 0 10px;
-}
-
-.color-picker {
-  align-self: center;
-  margin: 0 10px;
-  height: 50px;
-}
-
-.pen-range {
-  align-self: center;
-  margin: 0 10px;
 } */
