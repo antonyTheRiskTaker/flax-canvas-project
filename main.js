@@ -1,4 +1,11 @@
 $(() => {
+  // (Line below) when clicked, it applies the selected class to the targeted button after it has removed the selected class from other button elements.
+  $('button').on('click', e => {
+    $('button').removeClass('selected');
+    $(e.target).addClass('selected');
+    console.log('selected added');
+  });
+  
   $('#drawing-line').on('click', () => {
     currentDrawingFunction = new DrawingLine(
       ctxReal
