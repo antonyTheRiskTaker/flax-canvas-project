@@ -46,6 +46,14 @@ body {
   margin-right: 10px;
 }
 
+button:hover {
+  background-color: cornflowerblue;
+}
+
+button.selected {
+  color: yellow;
+}
+
 .canvas-wrapper {
   position: relative;
   width: var(--canvas-size);
